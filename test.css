@@ -1,0 +1,48 @@
+.Standarsearch form {
+    /* width: 100%; */
+    position: relative;
+}
+
+.Standarsearch form:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-family: 'FontAwesome';
+    content: '\f002';
+    background: #6426a7;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.Standarsearch input[type="search"] {
+    background: #8a44d5;
+    color: #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    border: 5px solid #6426a7;
+    padding: 5px;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.Standarsearch input[type="submit"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.Standarsearch input[type="search"]:hover, .Standarsearch input[type="search"]:focus {
+    background: #6426a7;
+}

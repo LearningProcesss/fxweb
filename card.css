@@ -1,0 +1,94 @@
+.card {
+    flex-grow: 1;
+    margin: 10px;
+}
+
+.card-header {
+    background-color: #45a564;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: solid;
+    font-weight: 800;
+    font-size: 24px;
+    padding: 40px;
+    letter-spacing: 0.3rem;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
+.card-header-sub {
+    background-color: #2d814d;
+    padding: 5px;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+}
+
+.card-header-sub>p {
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.card-content {
+    font-family: "Dosis", serif;
+    font-size: 14px;
+}
+
+.card-content-groop {
+    background-color: gray;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.details {
+    flex-grow: 2;
+}
+
+.icon-wrapper {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    margin-left: 5px;
+}
+
+.icon-wrapper i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.vpn .icon-wrapper {
+    background-color: #3b5998;
+}
+
+.vpn h4 {
+    color: #3b5998;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.domain .icon-wrapper {
+    background-color: #1e0070;
+}
+
+.domain h4 {
+    color: #1e0070;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.profile .icon-wrapper {
+    background-color: #c22121;
+}
+
+.profile h4 {
+    color: #c22121;
+    font-size: 18px;
+    font-weight: 900;
+}
