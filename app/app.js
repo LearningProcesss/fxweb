@@ -1,10 +1,8 @@
 window.onload = async () => {
 
-    const dataContainer = document.getElementById("dataContainer")
 
-    console.log(dataContainer);
 
-   await loadData()
+    await loadData()
 
     setTimeout(() => {
 
@@ -13,6 +11,27 @@ window.onload = async () => {
 
 async function loadData() {
 
-    await getDocumentsByType()
+    const data = await getDocumentsByType()
 
+    const dataContainer = document.getElementById("dataContainer")
+
+    data.forEach(proData => {
+        const card = document.createElement("div")
+
+        card.setAttribute("class", "card")
+
+        const cardHeader = document.createElement("header")
+
+        cardHeader.setAttribute("class", "card-header")
+
+        const text = document.createTextNode(proData["/Document/docDescriptionUpdate"])
+
+        cardHeader.appendChild(text)
+
+        card.appendChild(cardHeader)
+    })
+
+
+
+    console.log(dataContainer);
 }
