@@ -1,19 +1,24 @@
 .card {
     flex-grow: 1;
     margin: 10px;
+    min-width: 300px;
+    max-width: 300px;
 }
 
 .card-header {
     background-color: #45a564;
     padding: 10px;
     color: white;
+    text-overflow: ellipsis;
     text-align: center;
     text-decoration: solid;
     font-weight: 800;
     font-size: 24px;
-    padding: 40px;
-    letter-spacing: 0.3rem;
+    padding: 20px;
+    letter-spacing: 0.2rem;
     border-radius: 0.5rem 0.5rem 0rem 0rem;
+    min-height: 100px;
+    max-height: 100px;
 }
 
 .card-header-sub {
@@ -91,4 +96,36 @@
     color: #c22121;
     font-size: 18px;
     font-weight: 900;
+}
+
+@media (min-width:320px) {
+
+
+}
+
+@media (min-width:481px) {
+    
+    .card {
+        min-width: 450px;
+        max-width: 450px;
+    }
+}
+
+@media (min-width:641px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+
+@media (min-width:961px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+  
+}
+
+@media (min-width:1281px) {
+      .card {
+        min-width: 530px;
+        max-width: 530px;
+    }
 }

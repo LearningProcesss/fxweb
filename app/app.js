@@ -1,13 +1,19 @@
+import { getDocumentsByType } from './api/profx.js'
+import { VpnDto } from './dto/Vpn.dto.js';
+import Vpn from './views/Vpn.Document.Card.js'
+
+
 window.onload = async () => {
 
-
+    console.log("window.onload ");
 
     await loadData()
-
-    setTimeout(() => {
-
-    }, 2000)
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOMContentLoaded");
+
+});
 
 async function loadData() {
 
@@ -16,22 +22,43 @@ async function loadData() {
     const dataContainer = document.getElementById("dataContainer")
 
     data.forEach(proData => {
-        const card = document.createElement("div")
 
-        card.setAttribute("class", "card")
+        // console.log(VpnDto.fromJson(proData));
 
-        const cardHeader = document.createElement("header")
+        const div = document.createElement('div')
 
-        cardHeader.setAttribute("class", "card-header")
+        div.innerHTML = new Vpn(VpnDto.fromJson(proData)).getHtml()
 
-        const text = document.createTextNode(proData["/Document/docDescriptionUpdate"])
+        dataContainer.appendChild(div)
 
-        cardHeader.appendChild(text)
 
-        card.appendChild(cardHeader)
+
+        // const card = document.createElement("div")
+
+        // card.setAttribute("class", "card")
+
+        // const cardHeader = document.createElement("header")
+
+        // cardHeader.setAttribute("class", "card-header")
+
+        // const text = document.createTextNode(proData["/Document/docDescriptionUpdate"])
+
+        // cardHeader.appendChild(text)
+
+        // card.appendChild(cardHeader)
+
+        // const subHeader = document.createElement("div")
+
+        // subHeader.setAttribute("class", "card-header-sub")
+
+        // const subHeaderP = document.createElement("p")
+
+        // const subHeaderPText = document.createTextNode("Data")
+
+        // subHeaderP.appendChild(subHeaderPText)
+
+        // subHeader.appendChild(subHeaderP)
     })
-
-
 
     console.log(dataContainer);
 }

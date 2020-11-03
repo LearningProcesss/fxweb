@@ -214,6 +214,11 @@ class FxServiceLoadEntity extends FxServiceBase {
     }
 }
 
+/**
+ * 
+ * @param {*} params 
+ * @returns {Array}
+ */
 async function getDocumentsByType(params) {
 
     const fxCore = new FxCore("WS2019AG", "FINCAD", "procad", "procaf17")
@@ -234,4 +239,8 @@ async function getDocumentsByType(params) {
     } catch (error) {
         console.log(error);
     }
+}
+
+export {
+    getDocumentsByType
 }
