@@ -40,7 +40,7 @@
 .dataContainer {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     /* align-content: flex-star; */
     flex-wrap: wrap;

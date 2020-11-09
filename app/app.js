@@ -1,64 +1,93 @@
-import { getDocumentsByType } from './api/profx.js'
-import { VpnDto } from './dto/Vpn.dto.js';
-import Vpn from './views/Vpn.Document.Card.js'
-
+import { FxClient } from './api/profx.js'
+import VpnCard from './views/Vpn.Document.Card.js'
 
 window.onload = async () => {
 
     console.log("window.onload ");
 
-    await loadData()
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
     console.log("DOMContentLoaded");
 
+    // await loadData()
+
+    let cardsButton = document.querySelectorAll(".card-btn")
+
+    console.log(cardsButton);
+
+    cardsButton.forEach(element => element.addEventListener("click", () => {
+        const card = element.closest(".card").classList.toggle("change")
+    }))
+
+    document.querySelectorAll(".m-card-action-button").forEach(btn => btn.addEventListener("click", (e) => {
+
+        btn.parentElement.childNodes.forEach(item => {
+
+            if (item.classList?.contains("active")) {
+                item.classList.remove("active")
+            }
+        })
+
+        btn.classList.toggle("active")
+
+        console.log(btn.classList[1])
+
+        //
+
+        const contentGroops = Array.from(Array.from(btn.closest(".m-card").childNodes).filter(element => element.classList?.contains("m-card-content"))[0].childNodes)
+
+        contentGroops.forEach(contentGroop => {
+
+            console.log(contentGroop.classList)
+
+            if (contentGroop?.classList?.contains("active")) {
+                contentGroop.classList.toggle("active")
+            }
+
+            if (contentGroop?.classList?.contains(btn.classList[1])) {
+                contentGroop.classList.toggle("active")
+            }
+        })
+
+
+
+    }))
 });
 
 async function loadData() {
 
-    const data = await getDocumentsByType()
+    const data = await FxClient.getDocumentsByType()
 
     const dataContainer = document.getElementById("dataContainer")
 
     data.forEach(proData => {
 
-        // console.log(VpnDto.fromJson(proData));
-
         const div = document.createElement('div')
 
-        div.innerHTML = new Vpn(VpnDto.fromJson(proData)).getHtml()
+        div.innerHTML = new VpnCard(proData).getHtml()
 
         dataContainer.appendChild(div)
-
-
-
-        // const card = document.createElement("div")
-
-        // card.setAttribute("class", "card")
-
-        // const cardHeader = document.createElement("header")
-
-        // cardHeader.setAttribute("class", "card-header")
-
-        // const text = document.createTextNode(proData["/Document/docDescriptionUpdate"])
-
-        // cardHeader.appendChild(text)
-
-        // card.appendChild(cardHeader)
-
-        // const subHeader = document.createElement("div")
-
-        // subHeader.setAttribute("class", "card-header-sub")
-
-        // const subHeaderP = document.createElement("p")
-
-        // const subHeaderPText = document.createTextNode("Data")
-
-        // subHeaderP.appendChild(subHeaderPText)
-
-        // subHeader.appendChild(subHeaderP)
     })
 
     console.log(dataContainer);
 }
+
+const searchInput = document.getElementById('searchInput')
+
+searchInput.addEventListener('keyup', (e) => {
+
+    const list = Array.from(document.querySelectorAll('.searchable'))
+
+    list.filter(element => element.innerHTML.toLowerCase().indexOf(e.target.value.toLowerCase()) == -1)
+        .map(element => { return element.closest("div.card").id })
+        .filter((value, index, array) => array.indexOf(value) === index)
+        .forEach(id => document.getElementById(id).style.display = 'none')
+
+    const found = list.filter(element => element.innerHTML.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1)
+        .map(element => { return element.closest("div.card").id })
+        .filter((value, index, array) => array.indexOf(value) === index)
+        .forEach(id => document.getElementById(id).style.display = '')
+})
+

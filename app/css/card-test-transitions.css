@@ -1,0 +1,202 @@
+.m-card {
+    /* margin-top: 60px !important; */
+    /* margin-left: 20px; */
+    /* max-width: 400px; */
+    /* position: relative; */
+    width: 400px;
+    margin: 6px;
+}
+
+.m-card-header {
+    /* position: relative; */
+    background-color: #5da3f2;
+    /* padding: 10px; */
+    color: white;
+    text-overflow: ellipsis;
+    text-align: center;
+    text-decoration: solid;
+    font-weight: 800;
+    font-size: 24px;
+    padding: 10px;
+    letter-spacing: 0.2rem;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    /* z-index: 99; */
+    /* width: 100%; */
+    min-height: 40px;
+    max-height: 40px;
+}
+
+.m-card-action-btn {
+    position: absolute;
+    padding: 10px !important;
+    bottom: -2.50rem;
+    right: 10rem;
+    width: 7rem;
+    height: 4rem;
+    background-color: #2b303a;
+    color: #fff;
+    border-radius: 5rem;
+    border: none;
+    font-family: "Dosis", serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.3);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.m-card-action-btn-badge {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    /* padding: 0.3rem; */
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    background-color: #45a564;
+    border-radius: 50%;
+    top: 0.3rem;
+    right: 1.50rem;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-card-badge {
+    /* position: relative; */
+    width: 1.5rem;
+    height: 1.5rem;
+    /* padding: 0.3rem; */
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #45a564;
+    border-radius: 50%;
+    top: 0.3rem;
+    right: 1.50rem;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-card-content {
+    margin-top: 0 !important;
+}
+
+.m-card-content-groop {
+    /* position: absolute; */
+    /* visibility: hidden; */
+    /* width: 100%; */
+    /* opacity: 0; */
+    /* transform: translateY(100%);
+    transition: transform .3s ease-in, opacity .4s ease-in */
+
+    background-color: #0078d7;
+    margin-top: 0 !important;
+}
+
+.m-card-content-groop p {
+    color: black;
+    margin-left: 1rem;
+    margin-top: -1rem;
+}
+
+.m-card-content-groop h4 {
+    margin-left: 1rem;
+}
+
+.m-card-content-groop.active {
+    /* visibility: visible;
+    opacity: 1;
+    transform:translateY(0); */
+}
+
+/* .m-card-action-content-groop {
+    display: flex;
+    align-items: center;
+    transform-origin: left;
+}
+
+.m-card-action-content-groop.active {
+    visibility: visible;
+    transform: translateY(0);
+    transition: transform 0.3s;
+}
+
+.m-card-action-content-groop.hidden {
+    transform: translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+} */
+
+.vpn h4 {
+    color: linear-gradient(45deg, #3b5998, #0078d7);
+}
+
+.m-card-footer-actions {
+    position: absolute;
+    width: 100%;
+    bottom: -400px;
+    padding: 20px !important;
+    /* border: solid 4px #3b5998; */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    background-image: linear-gradient(-20deg, #ff2846 0%, #6944ff 100%);
+}
+
+.m-card-action-button {
+    font-size: 1.5rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    border: none;
+    transition: transform .1s ease-in 0s
+}
+
+.m-card-action-button.vpn {
+    background: linear-gradient(45deg, #3b5998, #0078d7);
+    box-shadow: 0px 1px 1px rgba(43, 98, 169, 0.5);
+}
+
+.m-card-action-button.domain {
+    background: linear-gradient(45deg, #333333, #928939);
+}
+
+.m-card-action-button.profile {
+    background: linear-gradient(45deg, #d5135a, #f05924);
+}
+
+.m-card-action-button.server {
+    background: linear-gradient(45deg, #333333, #626b73);
+}
+
+.m-card-action-button:hover {
+    transform: scale(1.2)
+    /* rotate(360deg); */
+}
+
+/* Quando viene cliccato un bottone */
+
+.m-card-action-button.active {
+    transform: scale(1.2)
+}
+
+.m-card-action-button-text {
+    position: absolute;
+    top: 0.7rem;
+    display: inline-flex;
+    font-size: small;
+}

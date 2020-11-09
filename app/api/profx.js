@@ -113,8 +113,9 @@ class Query {
      * 
      * @param {string} entity 
      */
-    constructor(entity) {
+    constructor(entity, data) {
         this.entity = entity
+        this._data = data
     }
 
     getData() {
@@ -123,6 +124,18 @@ class Query {
 
     getQueryMethod() {
         return this._queryMethod
+    }
+
+    static factory(type, entity, data) {
+        if (type == "LoadEntityQuery") {
+            return new LoadEntityQuery(entity, data)
+        } else if (type == "LoadEntityWithSelectedFields") {
+            return new LoadEntityWithSelectedFields(entity, data)
+        } else if (type == "ExecuteCollectionQuery") {
+            return new ExecuteCollectionQuery(entity, data)
+        }
+
+        return undefined
     }
 }
 
@@ -133,8 +146,8 @@ class LoadEntityQuery extends Query {
     * @param {string} entity 
     * @param {number} id 
     */
-    constructor(entity, id) {
-        super(entity)
+    constructor(entity, data) {
+        super(entity, data)
         this._queryMethod = "LoadEntity"
         this._data = JSON.stringify([{ key: `urn:key:${this.entity}:${id}` }])
     }
@@ -146,10 +159,22 @@ class ExecuteCollectionQuery extends Query {
     * 
     * @param {string} entity 
     */
-    constructor(entity) {
+    constructor(entity, data) {
         super(entity)
         this._queryMethod = "ExecuteCollectionQuery"
-        this._data = "[{\"collectionQuery\": \"(context) => context.Documents().Where(item => item.DocumentType == \\\"/Document/Vpn/\\\").Select(item => item.ToDictionary(FieldValueFilter.ExcludeDefault))\"}]"
+        this._data = "[{\"collectionQuery\": \"(context) => context.Documents().Where(item => item.DocumentType == \\\"/Document/Vpn/\\\").Select(item => new { id = item.Id, description = item.Get<string>(\\\"/3/44\\\"), vpnUser = item.Get<string>(\\\"/3/38/10\\\"), vpnPassword = item.Get<string>(\\\"/3/38/11\\\"), domainUser = item.Get<string>(\\\"/3/38/14\\\"), domainPassword = item.Get<string>(\\\"/3/38/15\\\"), profileUser = item.Get<string>(\\\"/3/38/16\\\"), profilePassword = item.Get<string>(\\\"/3/38/17\\\") } )\"}]"
+    }
+}
+
+class LoadEntityWithSelectedFields extends Query {
+    /**
+    * 
+    * @param {string} entity 
+    */
+    constructor(entity, data) {
+        super(entity)
+        this._queryMethod = "LoadEntityWithSelectedFields"
+        this._data = "[{\"collectionQuery\": \"(context) => context.Documents().Where(item => item.DocumentType == \\\"/Document/Vpn/\\\").Select(item => new { id = item.Id, description = item.Get<string>(\"/3/44\") } )\"}]"
     }
 }
 
@@ -225,7 +250,7 @@ async function getDocumentsByType(params) {
 
     // const service = new fxServiceCollectionQuery()
 
-    const service = new FxServiceBase(fxCore, new ExecuteCollectionQuery("Document"))
+    const service = new FxServiceBase(fxCore, Query.factory("ExecuteCollectionQuery", "Document", null))
 
     try {
         // const data = await service.fxFetch()
@@ -241,6 +266,29 @@ async function getDocumentsByType(params) {
     }
 }
 
+const FxClient = {
+
+    getDocumentsByType: async function (params) {
+
+        const fxCore = new FxCore("WS2019AG", "FINCAD", "procad", "procaf17")
+
+        const service = new FxServiceBase(fxCore, Query.factory("ExecuteCollectionQuery", "Document", null))
+
+        try {
+            const data = await service.sendRequest()
+
+            console.log(data);
+
+            return data[1]
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+
+
 export {
-    getDocumentsByType
+    FxClient
 }

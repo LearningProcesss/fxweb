@@ -1,0 +1,224 @@
+.card {
+    flex-grow: 1;
+    margin: 10px;
+    min-width: 250px;
+    max-width: 250px;
+}
+
+.card-header {
+    position: relative;
+    background-color: #45a564;
+    border: 5px solid #1b8b3f;
+    padding: 10px;
+    color: white;
+    text-overflow: ellipsis;
+    text-align: center;
+    text-decoration: solid;
+    font-weight: 800;
+    font-size: 24px;
+    padding: 20px;
+    letter-spacing: 0.2rem;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    z-index: 99;
+    min-height: 80px;
+    transition: all 0.1s;
+}
+
+.card-btn {
+    position: absolute;
+    bottom: -3rem;
+    right: 10rem;
+    width: 10rem;
+    height: 5rem;
+    background-color: #2b303a;
+    color: #fff;
+    border-radius: 5rem;
+    border: none;
+    font-family: "Dosis", serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.3);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card-btn-contact {
+    transition: all 0.3s 0.1s;
+}
+
+.card-btn-contact, .card-btn i {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-btn i {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.change .card-btn-contact {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.1s;
+}
+
+.change .card-btn i {
+    opacity: 1;
+    visibility: visible;
+}
+
+.change .card-btn {
+    width: 6rem;
+    right: 3rem;
+    bottom: -3rem;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: '';
+}
+
+.card-header-sub {
+    background-color: #2d814d;
+    padding: 5px;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+    visibility: hidden;
+}
+
+.change .card-header-sub {
+    visibility: visible;
+    transform: translateY(0);
+    transition: all 0.3s;
+}
+
+.card-header-sub>p {
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    transform: scale(0);
+    transform-origin: left;
+    transition: all 0.3s;
+}
+
+.change .card-header-sub p {
+    transform: scale(1);
+}
+
+.card-content {
+    font-family: "Dosis", serif;
+    font-size: 14px;
+}
+
+.card-content-groop {
+    background-color: white;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.change .card-content-groop {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.details {
+    flex-grow: 1;
+}
+
+.icon-wrapper {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    margin-left: 5px;
+}
+
+.icon-wrapper i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.vpn {
+    transition: all 0.2s 0.2s;
+}
+
+.domain {
+    transition: all 0.2s 0.4s;
+}
+
+.profile {
+    transition: all 0.2s 0.6s;
+}
+
+.vpn .icon-wrapper {
+    background-color: #3b5998;
+}
+
+.vpn h4 {
+    color: #3b5998;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.domain .icon-wrapper {
+    background-color: #1e0070;
+}
+
+.domain h4 {
+    color: #1e0070;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.profile .icon-wrapper {
+    background-color: #c22121;
+}
+
+.profile h4 {
+    color: #c22121;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+@media (min-width:320px) {
+ 
+}
+
+@media (min-width:481px) {
+
+}
+
+@media (min-width:641px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+
+@media (min-width:961px) {
+
+}
+
+@media (min-width:1025px) {}
+
+@media (min-width:1281px) {
+
+}

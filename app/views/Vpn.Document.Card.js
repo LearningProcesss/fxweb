@@ -1,51 +1,54 @@
 import AbstractView from "./AbstractView.js";
 
 export default class extends AbstractView {
-    constructor({ name }) {
+    constructor({ id, description, vpnUser, vpnPassword, vpnHost, domainUser, domainPassword, profileUser, profilePassword }) {
         super();
-        this.name = name
-        // console.log("vpn component", name);
+        this.id = id
+        this.description = description
+        this.vpnUser = vpnUser
+        this.vpnPassword = vpnPassword
+        this.domainUser = domainUser
+        this.domainPassword = domainPassword
+        this.profileUser = profileUser
+        this.profilePassword = profilePassword
     }
-
-    // async getHtml() {
-    //     return `
-    //         <h1>Post</h1>
-    //         <p>You are viewing post #${this.postId}.</p>
-    //     `;
-    // }
 
     getHtml() {
         return `
-            <div class="card">
-                <header class="card-header">
-                    ${this.name}
-                </header>
-            <div class="card-header-sub">
-                <p>Data</p>
-            </div>
-            <div class="card-content">
-                <div class="card-content-groop vpn">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="details">
-                        <h4>Vpn User</h4>
-                        <p>janebrown@gmail.com</p>
-                        <h4>Vpn Password</h4>
-                        <p>janebrown@gmail.com</p>
-                        <h4>Vpn Host</h4>
-                        <p>janebrown@gmail.com</p>
-                    </div>
+            <div id="${this.id}" class="card">
+                <div class="card-header searchable">
+                    ${this.description}
+                    <button class="card-btn">
+                        <span class="card-btn-contact">Data</span>
+                        <i class="fas fa-angle-up"></i>
+                    </button>
                 </div>
+                <div class="card-header-sub">
+                    <p>data</p>
+                 </div>
+                <div class="card-content">
+                    <div class="card-content-groop vpn">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="details">
+                            <h4>Vpn User</h4>
+                            <p class="searchable">${this.vpnUser}</p>
+                            <h4>Vpn Password</h4>
+                            <p class="searchable">${this.vpnPassword}</p>
+                            <h4>Vpn Host</h4>
+                            <p class="searchable">janebrown@gmail.com</p>
+                        </div>
+                    </div>
                 <div class="card-content-groop domain">
                     <div class="icon-wrapper">
                         <i class="fas fa-address-card"></i>
                     </div>
                     <div class="details">
                         <h4>Domain User</h4>
-                        <p>janebrown@gmail.com</p>
+                        <p class="searchable">${this.domainUser}</p>
                         <h4>Domain Password</h4>
-                        <p>janebrown@gmail.com</p>
+                        <p class="searchable">${this.domainPassword}</p>
                     </div>
                 </div>
                 <div class="card-content-groop profile">
@@ -54,15 +57,13 @@ export default class extends AbstractView {
                     </div>
                     <div class="details">
                         <h4>Profile User</h4>
-                        <p>janebrown@gmail.com</p>
+                        <p class="searchable">${this.profileUser}</p>
                         <h4>Profile Password</h4>
-                        <p>janebrown@gmail.com</p>
+                        <p class="searchable">${this.profilePassword}</p>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
-                <p>Open</p>
-            </div>
+            
             </div>
         `;
     }
