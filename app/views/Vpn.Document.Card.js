@@ -5,6 +5,7 @@ export default class extends AbstractView {
         super();
         this.id = id
         this.description = description
+        this.vpnHost = vpnHost
         this.vpnUser = vpnUser
         this.vpnPassword = vpnPassword
         this.domainUser = domainUser

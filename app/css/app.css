@@ -1,15 +1,37 @@
-/* * {
+* {
     margin: 0;
     padding: 0;
-  } */
-  
+  }
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    /* background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%); */
+    overflow-y: scroll;
+    font-family: "Dosis", sans-serif;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.content {}
+
 .header {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
-    margin: 0 !important; 
+    margin: 0 !important;
     padding: 0 !important;
+    background-color: black;
 }
 
 .dataContainer {
@@ -24,6 +46,10 @@
     position: relative;
 }
 
+.asideleft {
+
+}
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -32,15 +58,15 @@
     background-color: aqua;
 }
 
-body {
-    margin: 0 !important; 
-    padding: 0 !important;
-    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
-    overflow-y: scroll;
-}
+@media all and (min-width: 800px) {
 
+    .asideleft {
+        order: 1;
+    }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.example::-webkit-scrollbar {
-    display: none;
+    .content {
+        order: 2;
+        flex: 3;
+        
+    }
 }
